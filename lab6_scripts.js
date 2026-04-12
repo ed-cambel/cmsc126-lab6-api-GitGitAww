@@ -36,7 +36,7 @@ function createCard(pokemon) {
   card.innerHTML = `
     <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
     <h3>#${pokemon.id} ${pokemon.name.toUpperCase()}</h3>
-    <p><strong>Type:</strong> ${pokemon.types.map((t) => t.type.name).join(", ")}</p>
+    <div class="types"> ${pokemon.types .map((t) => `<span class="type type-${t.type.name}">${t.type.name}</span>`).join("")}</div>
     <p><strong>Abilities:</strong> ${pokemon.abilities.map((a) => a.ability.name).join(", ")}</p>
   `;
 

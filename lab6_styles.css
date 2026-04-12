@@ -4,3 +4,168 @@
     Fallarme - Backend
     Gelvezon - Frontend
 */
+
+/* font import */
+@font-face {
+  font-family: "PokemonSolid";
+  src: url("font/Pokemon\ Solid.ttf") format("truetype");
+}
+
+/* background image - to be changed */
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-image: url("images/background.jpg");
+  background-size: cover;
+  background-position: center;
+
+  filter: blur(8px);
+  transform: scale(1.1);
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+/* font used */
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+}
+
+/* navigation/header section */
+.navigation-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #ef5350;
+  color: white;
+  flex-wrap: wrap;
+}
+
+.navigation-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navigation-search,
+.advanced-search-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navigation-search {
+  margin-left: auto;
+}
+
+/* search function styling */
+.navigation-search input {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+  font-weight: bold;
+}
+
+/* layout and styling */
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  padding: 20px;
+  width: 90%;
+  justify-content: center;
+  align-content: center;
+  margin: 0 auto;
+}
+
+/* ensures responsiveness */
+@media (max-width: 1000px) {
+  .pokemon-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .pokemon-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 450px) {
+  .pokemon-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* card template styling */
+.pokemon-card {
+  background: white;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+}
+
+.pokemon-card:hover {
+  transform: scale(1.05);
+}
+
+.pokemon-card img {
+  width: 100px;
+  height: 100px;
+}
+
+/* type styling */
+.type {
+  padding: 4px 8px;
+  border-radius: 8px;
+  color: white;
+  font-size: 12px;
+  margin-right: 4px;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+/* list of types and their respective color*/
+.type-fire {background: #F08030;}
+.type-water {background: #6890F0;}
+.type-grass {background: #78C850;}
+.type-electric {background: #F8D030;}
+.type-psychic {background: #F85888;}
+.type-ice {background: #98D8D8;}
+.type-dragon {background: #7038F8;}
+.type-dark {background: #705848;}
+.type-fairy {background: #EE99AC;}
+.type-normal {background: #A8A878;}
+.type-poison {background: #A040A0;}
+.type-bug {background: #A8B820;}
+.type-rock {background: #B8A038;}
+.type-ground {background: #E0C068;}
+.type-flying {background: #A890F0;}
+.type-fighting {background: #C03028;}
+.type-ghost {background: #705898;}
+.type-steel {background: #B8B8D0;}
