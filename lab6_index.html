@@ -14,43 +14,49 @@ Gelvezon - Frontend
     <title>Lab 6 - API Integration</title>
 
     <link rel="stylesheet" href="lab6_styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-    <nav class="navigation-bar">
-        <div class="navigation-logo">
-            <img class="logo" src="images/logo.png">
-            <h3>Generation 1 Pokemon</h3>
-        </div>
+    <div class="bg">
 
-        <div class="navigation-search">
-            <input type="text" id="search-id" placeholder="Enter Pokemon Name or ID"><br>
-        </div>
-    </nav>
+    </div>
+    <div class="content">
+        <nav class="navigation-bar">
+            <div class="navigation-logo">
+                <img class="logo" src="images/logo.png">
+                <h3>Generation 1 Pokemon</h3>
+            </div>
+
+            <div class="navigation-search">
+                <input type="text" id="search-id" placeholder="Enter Pokemon Name or ID"><br>
+            </div>
+        </nav>
 
 
 
-    <div id="loading" class="loading">Loading Pokémon...</div>
+        <div id="loading" class="loading">Loading Pokémon...</div>
 
-    <section class="pokemon-grid" id="pokemonGrid"></section>
+        <section class="pokemon-grid" id="pokemonGrid"></section>
 
-    <script src="lab6_scripts.js"></script>
+        <script src="lab6_scripts.js"></script>
 
-    <footer>
-        <hr>
-        <p>© 2026 Pokedex [CMSC 126] | Educational Project</p>
-        <p>Developed by: <a href="https://github.com/ed-cambel/cmsc126-lab6-api-GitGitAww">Git Git Aww</a></p>
+        <footer>
+            <hr>
+            <p>© 2026 Pokedex [CMSC 126] | Educational Project</p>
+            <p>Developed by: <a href="https://github.com/ed-cambel/cmsc126-lab6-api-GitGitAww">Git Git Aww</a></p>
 
-        <p>
-            Pokémon and all related names, images, and media are trademarks of
-            © Nintendo, Creatures Inc., and Game Freak Inc.
-        </p>
+            <p>
+                Pokémon and all related names, images, and media are trademarks of
+                © Nintendo, Creatures Inc., and Game Freak Inc.
+            </p>
 
-        <p>
-            No copyright infringement intended. Data provided by
-            <a href="https://pokeapi.co/" target="_blank">PokéAPI</a>.
-        </p>
-    </footer>
+            <p>
+                No copyright infringement intended. Data provided by
+                <a href="https://pokeapi.co/" target="_blank">PokéAPI</a>.
+            </p>
+        </footer>
+    </div>
 </body>
 
 </html>
