@@ -1,31 +1,42 @@
 <!--
     Cambel - Frontend
-    Espartero - Backend
-    Fallarme - Backend
-    Gelvezon - Frontend
+Espartero - Backend
+Fallarme - Backend
+Gelvezon - Frontend
 -->
-
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lab 6 - API Integration</title>
-    <link rel="stylesheet" type="text/css" href="lab6_styles.css">
+
+    <link rel="stylesheet" href="lab6_styles.css">
 </head>
 
 <body>
-    <p>nomnomnom</p>
+    <nav class="navigation-bar">
+        <div class="navigation-logo">
+            <img class="logo" src="images/logo.png">
+            <h3>Generation 1 Pokemon</h3>
+        </div>
+
+        <div class="navigation-search">
+            <input type="text" id="search-id" placeholder="Enter Pokemon Name or ID"><br>
+            <button class="search_button" type="button" onclick="findPokemon()">Search Pokemon</button>
+        </div>
+    </nav>
+
+
+
+    <div id="loading" class="loading">Loading Pokémon...</div>
+
+    <section class="pokemon-grid" id="pokemonGrid"></section>
+
+    <script src="lab6_scripts.js"></script>
+
 </body>
 
 </html>
-
-<!--------------- FOOTER SECTION --------------->
-<footer class="footer">
-    <hr>
-    <p>© 2026 Pokemon API Integration [CMSC 126] | All Rights Reserved</p>
-    <p>Developed by: Git Git Aww</p>
-    <p>Members: E. Cambel, J. Espartero, J. Fallarme, M. Gelvezon</p>
-</footer>
