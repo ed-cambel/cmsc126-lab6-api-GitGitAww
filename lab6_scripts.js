@@ -11,8 +11,22 @@ const loading = document.getElementById("loading");
 
 // find pokemon function 
 function findPokemon() {
-  // code here
+  const search = document.getElementById('search-id').value.toLowerCase();
+  const Pokemon_Cards = document.querySelectorAll('.pokemon-card');
+
+  Pokemon_Cards.forEach(card => {
+    const Pokemon_Name = card.querySelector('h3').textContent.toLowerCase();
+
+    if(Pokemon_Name.includes(search)){
+      card.style.display = "block";
+    } else{
+      card.style.display = "none";
+    }
+  });
 }
+
+// live search
+document.getElementById('search-id').addEventListener('input', findPokemon)
 
 // creates template for each card
 function createCard(pokemon) {
