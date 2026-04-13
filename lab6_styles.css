@@ -41,7 +41,7 @@ body {
 }
 
 /* navigation/header section */
-.navigation-bar {
+/* .navigation-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -49,9 +49,31 @@ body {
   background: #ef5350;
   color: white;
   flex-wrap: wrap;
+} */
+
+.navigation-bar{
+  background-color: #ef5350;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px 15px 20px;
+  letter-spacing: 3px;
+  border-bottom: 2px solid rgb(255, 255, 255);
+}
+
+#logo {
+  max-width: 60px;
+  width: auto;
+  margin-right: 20px;
+  margin-left: 0;
 }
 
 .navigation-logo {
+  display: flex;
+  max-width: 60px;
+  max-height: 100px;
+  margin-right: 20px;
+  margin-left: 0;
   display: flex;
   align-items: center;
   gap: 10px;
