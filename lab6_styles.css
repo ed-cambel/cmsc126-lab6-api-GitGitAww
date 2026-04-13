@@ -169,3 +169,26 @@ body {
 .type-fighting {background: #C03028;}
 .type-ghost {background: #705898;}
 .type-steel {background: #B8B8D0;}
+
+/* ======= Footer Section =======*/
+.footer {
+  text-align: center;
+  padding: 15px;
+  color: rgb(0, 0, 0);
+  font-size: 13px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px 15px 20px;
+  font-family: "Montserrat";
+}
+
+.footer hr {
+  border: 0;
+  height: 1px;
+  background-color: rgb(0, 0, 0);
+  margin-bottom: 10px;
+}
+
+.footer p {
+  margin: 5px 0;
+}
