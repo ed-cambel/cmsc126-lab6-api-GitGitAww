@@ -44,24 +44,73 @@ function createCard(pokemon) {
 }
 
 
-// loads all gen 1 pokemon
-async function loadPokemon() {
+// loads pokemons
+async function loadPokemon(genId) {
+  grid.innerHTML = " ";
+  loading.style.display = "block";
+
   try {
-    const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
-    const data = await res.json();
+    let pokemonList = []
+    
+    //Shows the pokemons based on the selected Generations
+    if (genId == 0) {
+      const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1025')
+      const data = await res.json();
+      pokemonList = data.results;
+    } else {
+      const res = await fetch(`https://pokeapi.co/api/v2/generation/${genId}`)
+      const data = await res.json();
+      pokemonList = data.pokemon_species
+    }
 
     const detailed = await Promise.all(
-      data.results.map((p) => fetch(p.url).then((r) => r.json())),
+    pokemonList.map(async (p) => {
+    try {
+      // try to fetch by the name 
+      const r = await fetch(`https://pokeapi.co/api/v2/pokemon/${p.name}`);
+      if (!r.ok) throw new Error("Not found");
+      return await r.json();
+    } catch (e) {
+          // If it fails, fetch the species data 
+          const speciesRes = await fetch(p.url);
+          const speciesData = await speciesRes.json();
+          const defaultVariety = speciesData.varieties.find(v => v.is_default).pokemon.name;
+          const finalRes = await fetch(`https://pokeapi.co/api/v2/pokemon/${defaultVariety}`);
+          return await finalRes.json();
+        }
+      })
     );
+
+    // arrange based on ID
+    detailed.sort((a, b) => a.id - b.id);
 
     detailed.forEach((pokemon) => {
       grid.appendChild(createCard(pokemon));
     });
-  } catch (err) {
-    grid.innerHTML = "<p>Failed to load Pokémon.</p>";
-  } finally {
-    loading.style.display = "none";
+      } catch (err) {
+        grid.innerHTML = "<p>Error loading Pokémon.</p>";
+      } finally {
+        loading.style.display = "none";
+      }
   }
-}
 
-loadPokemon();
+document.getElementById('gen-select').addEventListener('change', function(){
+  const selectedGenValue = this.value;
+    
+  // Get the label to update the h3
+  const selectedGenText = this.options[this.selectedIndex].text;
+    
+  // Update the h3 text
+  const titleElement = document.getElementById('gen-title');
+    if (selectedGenValue == "0") {
+        titleElement.textContent = "All Pokemon";
+    } else {
+        titleElement.textContent = `${selectedGenText} Pokemon`;
+    }
+
+  // Load the data
+  loadPokemon(selectedGenValue);
+});
+
+//Generation 1 is the default display
+loadPokemon(1);

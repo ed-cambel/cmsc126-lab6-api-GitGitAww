@@ -25,15 +25,25 @@ Gelvezon - Frontend
         <nav class="navigation-bar">
             <div class="navigation-logo">
                 <img class="logo" src="images/logo.png">
-                <h3>Generation 1 Pokemon</h3>
+                <h3 id="gen-title">Generation 1 Pokemon</h3>
+                <select id="gen-select">
+                <option value="0">ALL</option>
+                <option value="1" selected>Generation 1</option>
+                <option value="2">Generation 2</option>
+                <option value="3">Generation 3</option>
+                <option value="4">Generation 4</option>
+                <option value="5">Generation 5</option>
+                <option value="6">Generation 6</option>
+                <option value="7">Generation 7</option>
+                <option value="8">Generation 8</option>
+                <option value="9">Generation 9</option>
+                </select>
             </div>
 
             <div class="navigation-search">
                 <input type="text" id="search-id" placeholder="Enter Pokemon Name or ID"><br>
             </div>
         </nav>
-
-
 
         <div id="loading" class="loading">Loading Pokémon...</div>
 
