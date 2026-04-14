@@ -50,6 +50,9 @@ body {
 } */
 
 .navigation-bar{
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* keeps it above everything */
   background-color: #ef5350;
   display: flex;
   justify-content: space-between;
@@ -83,13 +86,6 @@ body {
          4px  4px 6px rgba(0,0,0,0.3);
 }
 
-#logo {
-  max-width: 60px;
-  width: auto;
-  margin-right: 20px;
-  margin-left: 0;
-}
-
 .navigation-logo {
   display: flex;
   max-width: 60px;
@@ -117,8 +113,8 @@ body {
   padding: 12px 18px;
   width: 250px;
 
-  border: 3px solid black;
-  border-radius: 30px;
+  border: 3px solid #2a75bb;
+  border-radius: 12px;
 
   font-size: 14px;
   outline: none;
@@ -139,14 +135,14 @@ body {
 }
 
 .navigation-search input:focus {
-    background: #fff;
+    background: #ffeb3b;
 
-    border-color: #ffcb05; /* Pikachu yellow */
+    border-color: #2a75bb; 
 
     box-shadow:
-        0 0 10px #ffcb05,
-        0 0 20px #ffeb3b,
-        inset 2px 2px 5px rgba(0,0,0,0.2);
+      0 0 10px #ffffff,
+      0 0 20px #ffeb3b,
+      inset 2px 2px 5px rgba(0,0,0,0.2);
 
     transform: scale(1.05);
 }
@@ -167,6 +163,40 @@ body {
   justify-content: center;
   align-content: center;
   margin: 0 auto;
+}
+
+/* generation selection */
+select {
+    padding: 10px 16px;
+    border-radius: 12px;
+    border: 3px solid #2a75bb;
+    color:#2a75bb;
+    font-weight: bold;
+    margin-right: 7px;
+
+    background: #fff;
+    font-weight: bold;
+    cursor: pointer;
+
+    box-shadow:
+        inset 2px 2px 4px rgba(0,0,0,0.2),
+        2px 2px 6px rgba(0,0,0,0.3);
+
+    transition: 0.3s;
+}
+
+/* hover effect */
+select:hover {
+    background: #ffd21d;
+}
+
+/* focus effect */
+select:focus {
+    outline: none;
+    box-shadow: 
+    0 0 10px #ffffff,
+    0 0 20px #ffeb3b,
+    inset 2px 2px 5px rgba(0,0,0,0.2);
 }
 
 /* ensures responsiveness */
