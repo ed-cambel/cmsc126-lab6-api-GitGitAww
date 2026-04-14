@@ -17,17 +17,20 @@
     <link rel="shortcut icon" href="https://assets.pokemon.com/static2/_ui/img/favicon.ico" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css" />
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-    <div class="bg">
-
-    </div>
+    <div class="bg"></div>
     <div class="content">
         <nav class="navigation-bar">
             <div class="navigation-logo">
                 <img class="logo" src="images/logo.png">
                 <h3 id="gen-title">Generation 1 Pokemon</h3>
+            </div>
+
+            <div class="navigation-search">
+                <!-- Gen Select -->
                 <select id="gen-select">
                     <option value="0">ALL</option>
                     <option value="1" selected>Generation 1</option>
@@ -40,7 +43,6 @@
                     <option value="8">Generation 8</option>
                     <option value="9">Generation 9</option>
                 </select>
-            </div>
 
             <div class="navigation-search">
                 <!-- Type 1 Filter Select -->
@@ -98,6 +100,14 @@
         <div id="loading" class="loading">Loading Pokémon...</div>
 
         <section class="pokemon-grid" id="pokemonGrid"></section>
+
+        <button id="go-to-bottom">
+            <span class="material-icons">keyboard_arrow_down</span>
+        </button>
+
+        <button id="back-to-top">
+            <span class="material-icons">keyboard_arrow_up</span>
+        </button>
 
         <script src="lab6_scripts.js"></script>
 

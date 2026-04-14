@@ -5,13 +5,6 @@
     Gelvezon - Frontend
 */
 
-/* font import */
-@font-face {
-  font-family: "PokemonSolid";
-  src: url("font/Pokemon\ Solid.ttf") format("truetype");
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@500;600&display=swap');
 
 /* background image - to be changed */
 .bg {
@@ -38,80 +31,66 @@ body {
   background: #f5f5f5;
 }
 
-/* navigation/header section */
-/* .navigation-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background: #ef5350;
-  color: white;
-  flex-wrap: wrap;
-} */
-
-.navigation-bar{
+.navigation-bar {
   position: sticky;
   top: 0;
-  z-index: 1000; /* keeps it above everything */
+  z-index: 1000;
+
   background-color: #ef5350;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px 15px 20px;
+
+  padding: 12px 20px;
+
   letter-spacing: 3px;
   border-bottom: 2px solid rgb(0, 0, 0);
-}
-
-/* Logo image */
-.logo {
-    width: 80px;
-    height: 80px;
-    margin-left: 10px;
-}
-
-/* Title text */
-.navigation-logo h3 {
-    margin: 0;
-    font-size: 26px;
-    font-weight: bold;
-    font-family: sans-serif;
-
-    color: #ffd21d;
-
-    text-shadow:
-        -2px -2px 0 #2a75bb,
-         2px -2px 0 #2a75bb,
-        -2px  2px 0 #2a75bb,
-         2px  2px 0 #2a75bb,
-         4px  4px 6px rgba(0,0,0,0.3);
+  text-transform: uppercase;
+  gap: 20px;
 }
 
 .navigation-logo {
   display: flex;
-  max-width: 60px;
-  max-height: 100px;
-  margin-right: 20px;
-  margin-left: 0;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Logo image */
+.logo {
+  width: 70px;
+  height: 70px;
+  margin: 0;
+}
+
+/* Title text */
+.navigation-logo h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+
+  color: #ffd21d;
+
+  text-shadow:
+    -2px -2px 0 #2a75bb,
+    2px -2px 0 #2a75bb,
+    -2px 2px 0 #2a75bb,
+    2px 2px 0 #2a75bb,
+    4px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.navigation-search {
+  margin-left: auto;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.navigation-search,
-.advanced-search-button {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.navigation-search {
-  margin-left: auto;
-}
-
 /* search function styling */
 .navigation-search input {
-  padding: 12px 18px;
-  width: 250px;
+  padding: 10px 14px;
+  width: 220px;
 
   border: 3px solid #2a75bb;
   border-radius: 12px;
@@ -122,29 +101,29 @@ body {
   background: linear-gradient(145deg, #ffffff, #f0f0f0);
 
   box-shadow:
-      inset 2px 2px 5px rgba(0,0,0,0.2),
-      inset -2px -2px 5px rgba(255,255,255,0.7),
-      0 4px 10px rgba(0,0,0,0.3);
+    inset 2px 2px 5px rgba(0, 0, 0, 0.2),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.7),
+    0 4px 10px rgba(0, 0, 0, 0.3);
 
-    transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .navigation-search input::placeholder {
-    color: #888;
-    font-style: italic;
+  color: #888;
+  font-style: italic;
 }
 
 .navigation-search input:focus {
-    background: #ffeb3b;
+  background: #ffeb3b;
 
-    border-color: #2a75bb; 
+  border-color: #2a75bb;
 
-    box-shadow:
-      0 0 10px #ffffff,
-      0 0 20px #ffeb3b,
-      inset 2px 2px 5px rgba(0,0,0,0.2);
+  box-shadow:
+    0 0 10px #ffffff,
+    0 0 20px #ffeb3b,
+    inset 2px 2px 5px rgba(0, 0, 0, 0.2);
 
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .loading {
@@ -167,36 +146,46 @@ body {
 
 /* generation selection */
 select {
-    padding: 10px 16px;
-    border-radius: 12px;
-    border: 3px solid #2a75bb;
-    color:#2a75bb;
-    font-weight: bold;
-    margin-right: 7px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 3px solid #2a75bb;
+  color: #2a75bb;
+  font-weight: bold;
 
-    background: #fff;
-    font-weight: bold;
-    cursor: pointer;
+  background: #fff;
+  cursor: pointer;
 
-    box-shadow:
-        inset 2px 2px 4px rgba(0,0,0,0.2),
-        2px 2px 6px rgba(0,0,0,0.3);
+  box-shadow:
+    inset 2px 2px 4px rgba(0, 0, 0, 0.2),
+    2px 2px 6px rgba(0, 0, 0, 0.3);
 
-    transition: 0.3s;
+  transition: 0.3s;
 }
 
 /* hover effect */
 select:hover {
-    background: #ffd21d;
+  background: #ffd21d;
 }
 
 /* focus effect */
 select:focus {
-    outline: none;
-    box-shadow: 
+  outline: none;
+  box-shadow:
     0 0 10px #ffffff,
     0 0 20px #ffeb3b,
-    inset 2px 2px 5px rgba(0,0,0,0.2);
+    inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* layout and styling */
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  padding: 20px;
+  width: 90%;
+  justify-content: center;
+  align-content: center;
+  margin: 0 auto;
 }
 
 /* ensures responsiveness */
