@@ -35,7 +35,7 @@ function createCard(pokemon) {
   card.classList.add(pokemon.types[0].type.name);
 
   card.innerHTML = `
-    <h3 class="id"> #${pokemon.id.toString().padStart(4, '0')} </h3>
+    <h3 class="id"> NO. ${pokemon.id.toString().padStart(4, '0')} </h3>
     <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
     <h3 class="name">${pokemon.name.toUpperCase()}</h3>
     <div class="types"> ${pokemon.types .map((t) => `<span class="type type-${t.type.name}">${t.type.name}</span>`).join("")}</div>
@@ -179,3 +179,52 @@ async function loadPokemonByType(type) {
     loading.style.display = "none";
   }
 }
+
+// back to top button 
+const backToTopBtn = document.getElementById("back-to-top");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backToTopBtn.classList.add("show");
+  } else {
+    backToTopBtn.classList.remove("show");
+  }
+});
+
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+const btn = document.getElementById("go-to-bottom");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backToTopBtn.classList.add("show");
+  } else {
+    backToTopBtn.classList.remove("show");
+  }
+});
+
+// go to bottom button 
+const goToBottomBtn = document.getElementById("go-to-bottom");
+
+window.addEventListener("scroll", () => {
+  const nearBottom =
+    window.innerHeight + window.scrollY >= document.body.offsetHeight - 300;
+
+  if (!nearBottom) {
+    goToBottomBtn.classList.add("show");
+  } else {
+    goToBottomBtn.classList.remove("show");
+  }
+});
+
+goToBottomBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: "smooth"
+  });
+});
