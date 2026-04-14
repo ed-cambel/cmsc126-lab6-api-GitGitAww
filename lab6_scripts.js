@@ -115,3 +115,59 @@ document.getElementById('gen-select').addEventListener('change', function(){
 
 //Generation 1 is the default display
 loadPokemon(1);
+
+
+// filter pokemon by type
+document.getElementById('type-select').addEventListener('change', function () {
+  loadPokemonByType(this.value);
+});
+
+async function loadPokemonByType(type) {
+  grid.innerHTML = " ";
+  loading.style.display = "block";
+
+  try {
+    let pokemonList = [];
+
+    // all Pokemon (default)
+    if (type == 0) {
+      const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1025');
+      const data = await res.json();
+      pokemonList = data.results;
+
+    } else {
+      // by type
+      const res = await fetch(`https://pokeapi.co/api/v2/type/${type}`);
+      const data = await res.json();
+      pokemonList = data.pokemon.map(p => p.pokemon);
+    }
+
+    const detailed = await Promise.all(
+      pokemonList.map(async (p) => {
+        try {
+          const r = await fetch(`https://pokeapi.co/api/v2/pokemon/${p.name}`);
+          if (!r.ok) throw new Error("Not found");
+          return await r.json();
+        } catch (e) {
+          const speciesRes = await fetch(p.url);
+          const speciesData = await speciesRes.json();
+          const defaultVariety = speciesData.varieties.find(v => v.is_default).pokemon.name;
+          const finalRes = await fetch(`https://pokeapi.co/api/v2/pokemon/${defaultVariety}`);
+          return await finalRes.json();
+        }
+      })
+    );
+
+    // arrange based on ID
+    detailed.sort((a, b) => a.id - b.id);
+
+    detailed.forEach((pokemon) => {
+      grid.appendChild(createCard(pokemon));
+    });
+
+  } catch (err) {
+    grid.innerHTML = "<p>Error loading Pokémon.</p>";
+  } finally {
+    loading.style.display = "none";
+  }
+}
