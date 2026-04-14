@@ -32,10 +32,11 @@ document.getElementById('search-id').addEventListener('input', findPokemon)
 function createCard(pokemon) {
   const card = document.createElement("div");
   card.className = "pokemon-card";
+  card.classList.add(pokemon.types[0].type.name);
 
   card.innerHTML = `
     <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
-    <h3>#${pokemon.id} ${pokemon.name.toUpperCase()}</h3>
+    <h3>#${pokemon.id.toString().padStart(4, '0')} ${pokemon.name.toUpperCase()}</h3>
     <div class="types"> ${pokemon.types .map((t) => `<span class="type type-${t.type.name}">${t.type.name}</span>`).join("")}</div>
     <p><strong>Abilities:</strong> ${pokemon.abilities.map((a) => a.ability.name).join(", ")}</p>
   `;
