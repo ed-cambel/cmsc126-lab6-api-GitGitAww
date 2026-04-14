@@ -11,6 +11,8 @@
   src: url("font/Pokemon\ Solid.ttf") format("truetype");
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@500;600&display=swap');
+
 /* background image - to be changed */
 .bg {
   position: fixed;
@@ -18,10 +20,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-
-  background-image: url("images/background.jpg");
-  background-size: cover;
-  background-position: center;
 
   filter: blur(8px);
   transform: scale(1.1);
@@ -35,7 +33,7 @@
 
 /* font used */
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin: 0;
   background: #f5f5f5;
 }
@@ -162,7 +160,7 @@ body {
 /* layout and styling */
 .pokemon-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 25px;
   padding: 20px;
   width: 90%;
@@ -192,28 +190,181 @@ body {
 
 /* card template styling */
 .pokemon-card {
-  background: white;
+  width: 180px;
   border-radius: 12px;
-  padding: 12px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s;
+  padding: 10px;
 
+  background: radial-gradient(circle at top, #ffffff55, transparent);
+  border: 4px solid #C0C0C0;
+  box-shadow:
+    0 6px 12px rgba(0, 0, 0, 0.3),
+    inset 0 0 10px rgba(255, 255, 255, 0.6);
+
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   text-align: center;
 
 }
 
 .pokemon-card:hover {
   transform: scale(1.05);
+  box-shadow:
+    0 10px 18px rgba(0, 0, 0, 0.4),
+    inset 0 0 12px rgba(255, 255, 255, 0.8);
 }
 
 .pokemon-card img {
-  width: 100px;
-  height: 100px;
+  width: 95%;
+  height: 120px;
+  object-fit: contain;
+
+  background: radial-gradient(circle, #ffffff, #dcdcdc);
+  border: 2px solid #999;
+  border-radius: 8px;
+  padding: 5px;
+  margin-bottom: 8px;
+}
+
+.pokemon-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 5px 0;
+  color: #222;
+}
+
+.pokemon-card p {
+  font-size: 12px;
+  margin: 4px 0;
+  padding: 4px 6px;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+}
+
+.pokemon-card .id {
+  font-size: 16px;
+  margin: 4px 0;
+  padding: 2px 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.pokemon-card .abilities {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pokemon-card .abilities .ability-header {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 5px 0;
+  color: #222;
+}
+
+.ability-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.ability {
+  background: rgba(0, 0, 0, 0.08);
+  padding: 3px 6px;
+  border-radius: 6px;
+  font-size: 11px;
+  text-transform: capitalize;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* card stylings for each type */
+.pokemon-card {
+  background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+}
+
+.pokemon-card.normal {
+  background: linear-gradient(135deg, #A8A878, #C6C6A7);
+}
+
+.pokemon-card.fire {
+  background: linear-gradient(135deg, #F08030, #F8D030);
+}
+
+.pokemon-card.water {
+  background: linear-gradient(135deg, #6890F0, #98D8D8);
+}
+
+.pokemon-card.electric {
+  background: linear-gradient(135deg, #F8D030, #FFF2A8);
+}
+
+.pokemon-card.grass {
+  background: linear-gradient(135deg, #78C850, #A8E6A3);
+}
+
+.pokemon-card.ice {
+  background: linear-gradient(135deg, #98D8D8, #D0F8E8);
+}
+
+.pokemon-card.fighting {
+  background: linear-gradient(135deg, #C03028, #E79A8A);
+}
+
+.pokemon-card.poison {
+  background: linear-gradient(135deg, #A040A0, #D8A0D8);
+}
+
+.pokemon-card.ground {
+  background: linear-gradient(135deg, #E0C068, #F5DEB3);
+}
+
+.pokemon-card.flying {
+  background: linear-gradient(135deg, #A890F0, #C6B7F5);
+}
+
+.pokemon-card.psychic {
+  background: linear-gradient(135deg, #F85888, #F8A8B8);
+}
+
+.pokemon-card.bug {
+  background: linear-gradient(135deg, #A8B820, #D8E030);
+}
+
+.pokemon-card.rock {
+  background: linear-gradient(135deg, #B8A038, #E0C068);
+}
+
+.pokemon-card.ghost {
+  background: linear-gradient(135deg, #705898, #A292BC);
+}
+
+.pokemon-card.dragon {
+  background: linear-gradient(135deg, #7038F8, #B39DDB);
+}
+
+.pokemon-card.dark {
+  background: linear-gradient(135deg, #705848, #A29288);
+  color: white;
+}
+
+.pokemon-card.steel {
+  background: linear-gradient(135deg, #B8B8D0, #D8D8F0);
+}
+
+.pokemon-card.fairy {
+  background: linear-gradient(135deg, #EE99AC, #F4BDC9);
 }
 
 /* type styling */
@@ -225,27 +376,81 @@ body {
   margin-right: 4px;
   display: inline-block;
   text-transform: uppercase;
+  border: 1px solid black;
 }
 
 /* list of types and their respective color*/
-.type-fire {background: #F08030;}
-.type-water {background: #6890F0;}
-.type-grass {background: #78C850;}
-.type-electric {background: #F8D030;}
-.type-psychic {background: #F85888;}
-.type-ice {background: #98D8D8;}
-.type-dragon {background: #7038F8;}
-.type-dark {background: #705848;}
-.type-fairy {background: #EE99AC;}
-.type-normal {background: #A8A878;}
-.type-poison {background: #A040A0;}
-.type-bug {background: #A8B820;}
-.type-rock {background: #B8A038;}
-.type-ground {background: #E0C068;}
-.type-flying {background: #A890F0;}
-.type-fighting {background: #C03028;}
-.type-ghost {background: #705898;}
-.type-steel {background: #B8B8D0;}
+.type-fire {
+  background: #F08030;
+}
+
+.type-water {
+  background: #6890F0;
+}
+
+.type-grass {
+  background: #78C850;
+}
+
+.type-electric {
+  background: #F8D030;
+}
+
+.type-psychic {
+  background: #F85888;
+}
+
+.type-ice {
+  background: #98D8D8;
+}
+
+.type-dragon {
+  background: #7038F8;
+}
+
+.type-dark {
+  background: #705848;
+}
+
+.type-fairy {
+  background: #EE99AC;
+}
+
+.type-normal {
+  background: #A8A878;
+}
+
+.type-poison {
+  background: #A040A0;
+}
+
+.type-bug {
+  background: #A8B820;
+}
+
+.type-rock {
+  background: #B8A038;
+}
+
+.type-ground {
+  background: #E0C068;
+}
+
+.type-flying {
+  background: #A890F0;
+}
+
+.type-fighting {
+  background: #C03028;
+}
+
+.type-ghost {
+  background: #705898;
+}
+
+.type-steel {
+  background: #B8B8D0;
+}
 
 /* ======= Footer Section =======*/
 .footer {
