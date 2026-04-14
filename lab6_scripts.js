@@ -157,7 +157,7 @@ async function loadPokemonByType(type) {
       })
     );
 
-    // sort by ID
+    // arrange based on ID
     detailed.sort((a, b) => a.id - b.id);
 
     detailed.forEach((pokemon) => {
