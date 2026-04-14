@@ -41,6 +41,7 @@ function createCard(pokemon) {
   card.className = `pokemon-card ${pokemon.types[0].type.name}`;
 
   card.innerHTML = `
+    <h3 class="id"> #${pokemon.id.toString().padStart(4, '0')} </h3>
     <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
     <h3 class="name">${pokemon.name.toUpperCase()}</h3>
     <div class="types"> 
