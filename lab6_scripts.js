@@ -21,15 +21,18 @@ const extractId = (url) => url.split('/').filter(Boolean).pop();
 
 // Live Search Function
 function findPokemon() {
-  const search = searchInput.value.toLowerCase();
+  const search = searchInput.value.toLowerCase().trim(); 
   const pokemonCards = document.querySelectorAll('.pokemon-card');
 
-    pokemonCards.forEach(card => {
-    const pokemonName = card.querySelector('.name').textContent.toLowerCase();
+  pokemonCards.forEach(card => {
+    // Grab BOTH the name and the ID text from the card
+    const pokemonName = card.querySelector('h3.name').textContent.toLowerCase();
+    const pokemonId = card.querySelector('h3.id').textContent.toLowerCase();
 
-    if(pokemonName.includes(search)){
-      card.style.display = "block";
-    } else{
+    // Check if the search term is included in either the name OR the ID
+    if (pokemonName.includes(search) || pokemonId.includes(search)) {
+      card.style.display = "";
+    } else {
       card.style.display = "none";
     }
   });
@@ -210,7 +213,7 @@ async function loadPokemonByTwoTypes(type1, type2, genId) {
     }
 
     if (validIds.length === 0) {
-      grid.innerHTML = `<p>No Pokémon found with the combination of ${type1} and ${type2} types in the selected generation.</p>`;
+      grid.innerHTML = `<p class="no-results"><strong>No Pokémon found with the combination of ${type1} and ${type2} types in the selected generation.</strong></p>`;
       return; 
     }
 

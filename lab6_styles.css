@@ -154,16 +154,16 @@ body {
 }
 
 /* layout and styling */
-.pokemon-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 25px;
-  padding: 20px;
-  width: 90%;
-  justify-content: center;
-  align-content: center;
-  margin: 0 auto;
-}
+  .pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    width: 90%;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+  }
 
 /* generation selection */
 select {
@@ -480,6 +480,13 @@ select:focus {
 
 .type-steel {
   background: #B8B8D0;
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
 }
 
 /* ======= Footer Section =======*/
