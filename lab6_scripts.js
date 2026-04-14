@@ -247,3 +247,45 @@ typeSelect2?.addEventListener('change', handleTypeFilter);
 
 // Initialize Page Load
 handleTypeFilter();
+
+// buttons
+const backToTopBtn = document.getElementById("back-to-top");
+const goToBottomBtn = document.getElementById("go-to-bottom");
+
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+  const pageHeight = document.body.scrollHeight;
+  const windowHeight = window.innerHeight;
+
+  const nearTop = scrollY < 300;
+  const nearBottom = scrollY + windowHeight > pageHeight - 300;
+
+  // back to top shows when NOT near top
+  if (!nearTop) {
+    backToTopBtn.classList.add("show");
+  } else {
+    backToTopBtn.classList.remove("show");
+  }
+
+  // go to bottom shows when NOT near bottom
+  if (!nearBottom) {
+    goToBottomBtn.classList.add("show");
+  } else {
+    goToBottomBtn.classList.remove("show");
+  }
+});
+
+// click actions
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+goToBottomBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: "smooth"
+  });
+});
