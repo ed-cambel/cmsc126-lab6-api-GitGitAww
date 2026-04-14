@@ -58,7 +58,31 @@ body {
   align-items: center;
   padding: 15px 30px 15px 20px;
   letter-spacing: 3px;
-  border-bottom: 2px solid rgb(255, 255, 255);
+  border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+/* Logo image */
+.logo {
+    width: 80px;
+    height: 80px;
+    margin-left: 10px;
+}
+
+/* Title text */
+.navigation-logo h3 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: bold;
+    font-family: sans-serif;
+
+    color: #ffd21d;
+
+    text-shadow:
+        -2px -2px 0 #2a75bb,
+         2px -2px 0 #2a75bb,
+        -2px  2px 0 #2a75bb,
+         2px  2px 0 #2a75bb,
+         4px  4px 6px rgba(0,0,0,0.3);
 }
 
 #logo {
@@ -92,10 +116,41 @@ body {
 
 /* search function styling */
 .navigation-search input {
-  padding: 6px 10px;
-  border: none;
-  border-radius: 6px;
+  padding: 12px 18px;
+  width: 250px;
+
+  border: 3px solid black;
+  border-radius: 30px;
+
+  font-size: 14px;
   outline: none;
+
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+
+  box-shadow:
+      inset 2px 2px 5px rgba(0,0,0,0.2),
+      inset -2px -2px 5px rgba(255,255,255,0.7),
+      0 4px 10px rgba(0,0,0,0.3);
+
+    transition: all 0.3s ease;
+}
+
+.navigation-search input::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+.navigation-search input:focus {
+    background: #fff;
+
+    border-color: #ffcb05; /* Pikachu yellow */
+
+    box-shadow:
+        0 0 10px #ffcb05,
+        0 0 20px #ffeb3b,
+        inset 2px 2px 5px rgba(0,0,0,0.2);
+
+    transform: scale(1.05);
 }
 
 .loading {
