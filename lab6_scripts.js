@@ -35,10 +35,18 @@ function createCard(pokemon) {
   card.classList.add(pokemon.types[0].type.name);
 
   card.innerHTML = `
+    <h3 class="id"> #${pokemon.id.toString().padStart(4, '0')} </h3>
     <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
-    <h3>#${pokemon.id.toString().padStart(4, '0')} ${pokemon.name.toUpperCase()}</h3>
+    <h3 class="name">${pokemon.name.toUpperCase()}</h3>
     <div class="types"> ${pokemon.types .map((t) => `<span class="type type-${t.type.name}">${t.type.name}</span>`).join("")}</div>
-    <p><strong>Abilities:</strong> ${pokemon.abilities.map((a) => a.ability.name).join(", ")}</p>
+    <p class="abilities">
+      <span class="ability-header">Abilities: </span>
+      <span class="ability-list">
+        ${pokemon.abilities
+          .map(a => `<span class="ability">${a.ability.name}</span>`)
+          .join("")}
+      </span>
+    </p>
   `;
 
   return card;
